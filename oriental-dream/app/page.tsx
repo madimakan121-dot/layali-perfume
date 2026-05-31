@@ -6,19 +6,19 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 const HERO_SLIDES = [
   {
-    bg: "https://images.unsplash.com/photo-1541643600914-78b084683702?w=1600&q=80",
+    bg: "/background.jpg",
     accent: "Premium Couture",
     title: "Desert Rose\nMirage",
     subtitle: "Velvet petals, oud resin and a whisper of golden light.",
   },
   {
-    bg: "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=1600&q=80",
+    bg: "/background.jpg",
     accent: "Colección Exclusiva",
     title: "Noche de\nBaghdad",
     subtitle: "El misterio del oriente capturado en cada gota.",
   },
   {
-    bg: "https://images.unsplash.com/photo-1590156562745-5f23eff3e0cf?w=1600&q=80",
+    bg: "/background.jpg",
     accent: "Edición Limitada",
     title: "Sands of\nArabia",
     subtitle: "Ámbar dorado, oud puro y la eternidad del desierto.",
@@ -140,13 +140,13 @@ function Hero() {
   const slide = HERO_SLIDES[cur];
 
   return (
-    <section style={{ position: "relative", height: "100vh", overflow: "hidden", background: "#0a0600" }}>
+    <section style={{ position: "relative", height: "100vh", overflow: "hidden", background: "#1a0000" }}>
       {/* BG images */}
       {HERO_SLIDES.map((s, i) => (
         <div key={i} style={{
           position: "absolute", inset: 0, zIndex: 1,
           backgroundImage: `url(${s.bg})`,
-          backgroundSize: "cover", backgroundPosition: "center",
+          backgroundSize: "cover", backgroundPosition: "center bottom",
           opacity: i === cur ? 1 : 0,
           transform: i === cur ? "scale(1.04)" : "scale(1)",
           transition: "opacity 1.4s cubic-bezier(.4,0,.2,1), transform 7s ease-out",
@@ -154,8 +154,8 @@ function Hero() {
       ))}
 
       {/* Overlays */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.55) 100%)" }} />
-      <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 45%)" }} />
+      <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(to right, rgba(0,0,0,.55) 0%, rgba(0,0,0,.08) 55%, rgba(0,0,0,.2) 100%)" }} />
+      <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(to top, rgba(0,0,0,.7) 0%, rgba(0,0,0,.05) 35%, transparent 65%)" }} />
 
       {/* Content */}
       <div style={{
@@ -294,7 +294,7 @@ function Navbar({ search, setSearch }: { search: string; setSearch: (s: string) 
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         height: 70, padding: "0 2.5rem",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        background: scrolled ? "rgba(8,5,2,.93)" : "linear-gradient(to bottom,rgba(0,0,0,.65),transparent)",
+        background: scrolled ? "rgba(14,0,0,.93)" : "linear-gradient(to bottom,rgba(0,0,0,.65),transparent)",
         backdropFilter: scrolled ? "blur(22px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(193,152,73,.12)" : "none",
         transition: "background .5s, border-color .5s",
@@ -352,7 +352,7 @@ function Navbar({ search, setSearch }: { search: string; setSearch: (s: string) 
       {/* Search bar */}
       <div style={{
         position: "fixed", top: 70, left: 0, right: 0, zIndex: 99,
-        background: "rgba(8,5,2,.96)", backdropFilter: "blur(24px)",
+        background: "rgba(14,0,0,.96)", backdropFilter: "blur(24px)",
         borderBottom: "1px solid rgba(193,152,73,.2)",
         padding: "1.1rem 2.5rem",
         transform: searchOpen ? "translateY(0)" : "translateY(-110%)",
@@ -384,7 +384,7 @@ function Navbar({ search, setSearch }: { search: string; setSearch: (s: string) 
         }} onClick={() => setMenuOpen(false)}>
           <div style={{
             position: "absolute", top: 0, right: 0, bottom: 0, width: 260,
-            background: "linear-gradient(160deg,#0e0b05,#1a1508)",
+            background: "linear-gradient(160deg,#1a0000,#2d0000)",
             borderLeft: "1px solid rgba(193,152,73,.18)",
             padding: "5rem 2rem 2rem",
             display: "flex", flexDirection: "column", gap: ".2rem",
@@ -738,7 +738,7 @@ function SecTitle({ eyebrow, title, sub }: { eyebrow: string; title: string; sub
 
 function Footer() {
   return (
-    <footer style={{ background: "#060402", borderTop: "1px solid rgba(193,152,73,.1)", padding: "4rem 2.5rem 2.5rem" }}>
+    <footer style={{ background: "#080000", borderTop: "1px solid rgba(193,152,73,.1)", padding: "4rem 2.5rem 2.5rem" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: "2.5rem", marginBottom: "2.5rem" }}>
           {/* Brand */}
@@ -801,7 +801,7 @@ export default function Page() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&display=swap');
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         html{scroll-behavior:smooth}
-        body{background:#060402;color:#f5ead8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        body{background:#0e0000;color:#f5ead8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
         ::selection{background:rgba(193,152,73,.3);color:#F0D58C}
         ::-webkit-scrollbar{width:3px}
         ::-webkit-scrollbar-track{background:#060402}
@@ -846,7 +846,7 @@ export default function Page() {
         <div style={{
           position: "relative", margin: "5rem 2rem",
           borderRadius: 4, overflow: "hidden",
-          background: "linear-gradient(135deg,#0e0b04 0%,#1d1503 50%,#0a0800 100%)",
+          background: "linear-gradient(135deg,#1a0000 0%,#2d0500 50%,#150000 100%)",
           border: "1px solid rgba(193,152,73,.14)",
           padding: "4rem 2rem",
           display: "flex", flexDirection: "column", alignItems: "center",
